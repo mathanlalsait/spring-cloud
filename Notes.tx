@@ -1,0 +1,62 @@
+URL
+----------------------------------------------------------------------------
+
+http://localhost:8888/application/default
+http://localhost:8082/getmessage
+http://localhost:8081/getmessage
+http://localhost:8081/actuator/refresh-POST
+http://localhost:8082/actuator/refresh-POST
+----------------------------------------------------------------------------
+Create Repository in GITHUb
+----------------------------------------------------------------------------
+1. Create application.properties file
+----------------------------------------------------------------------------
+spring.datatasource.url=jdbc:mysql://localhost:3306/test
+message=Welcome from SpringBoot Cloud Server candid software
+----------------------------------------------------------------------------
+https://github.com/antonyraja1985/cloud-config.git
+----------------------------------------------------------------------------
+2.Create Spring Cloud Server using https://start.spring.io/ site 
+----------------------------------------------------------------------------
+
+Create Spring Cloud Server is a SpringBoot Project version 2.7.8
+
+Add Dependencies
+-----------------------------------------------------------------------------
+           1.Config Server  
+           2.Spring Boot DevTools
+-----------------------------------------------------------------------------
+After import Eclipse 
+add into application.properties file
+server.port=8888
+spring.cloud.config.server.git.uri=https://github.com/antonyraja1985/cloud-config.git
+     
+-----------------------------------------------------------------------------
+3. Create SpringBoot Service One 
+-----------------------------------------------------------------------------
+           1.Spring Web 
+           2.Spring Boot DevTools
+           3.Config Client 
+           4.Spring Boot Actuator
+------------------------------------------------------------------------------
+add into application.properties file
+------------------------------------------------------------------------------
+spring.config.import=optional:configserver:http://localhost:8888
+server.port=8081
+management.endpoints.web.exposure.in
+-----------------------------------------------------------------------------
+4. Create SpringBoot Service One 
+-----------------------------------------------------------------------------
+           1.Spring Web 
+           2.Spring Boot DevTools
+           3.Config Client 
+           4.Spring Boot Actuator
+add into application.properties file
+------------------------------------------------------------------------------
+spring.config.import=optional:configserver:http://localhost:8888
+server.port=8082
+management.endpoints.web.exposure.in
+-----------------------------------------------------------------------------
+5. Use @RefreshScope in springboot service controller
+http://localhost:8082/actuator/refresh-POST
+-----------------------------------------------------------------------------
