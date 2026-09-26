@@ -16,12 +16,12 @@ eureka:
 spring:
   application:
     name: student-service
-    
 
-  
 management:
-  security:
-    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: "*"
 
 logging:
   level:

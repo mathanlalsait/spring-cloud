@@ -1,16 +1,16 @@
 package com.example.howtodoinjava.springeurekaclientstudentservice;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-public class SpringEurekaClientStudentServiceApplicationTests {
+@SpringBootTest(properties = {
+		"eureka.client.enabled=false",
+		"spring.cloud.discovery.enabled=false"
+})
+class SpringEurekaClientStudentServiceApplicationTests {
 
 	@Test
-	public void contextLoads() {
+	void contextLoads() {
 	}
 
 }

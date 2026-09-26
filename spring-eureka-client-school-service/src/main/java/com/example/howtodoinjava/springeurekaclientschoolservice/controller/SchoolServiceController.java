@@ -1,8 +1,6 @@
 package com.example.howtodoinjava.springeurekaclientschoolservice.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,13 +23,6 @@ public class SchoolServiceController {
 
 		System.out.println("Response Received as " + response);
 
-	
 		return "School Name -  " + schoolname + " \n Student Details " + response;
-	}
-
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate() {
-		return new RestTemplate();
 	}
 }

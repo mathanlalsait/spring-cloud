@@ -17,6 +17,12 @@ spring:
   application:
     name: school-service
 
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
 logging:
   level:
     com.example.howtodoinjava: DEBUG
